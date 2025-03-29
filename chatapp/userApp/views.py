@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import User
+def profilePage(request):
+    users = User.objects.all()
+    context = {
+        "users": users
+    }
+    return render(request, "userApp/profilePage.html", context)

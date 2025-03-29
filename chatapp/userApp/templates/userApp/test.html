@@ -1,0 +1,21 @@
+{% block users %}
+<div class="container">
+  {% for user in users %}
+  <div class="row">
+    <img
+      src="{{ user.get_profile_photo_url }}"
+      alt="Profile Pic"
+      class="col"
+      style="
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        object-position: center;
+      "
+    />
+    <strong class="col"><span>{{ user.last_name }}</span></strong>
+    <span class="col">{{ user.first_name }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
