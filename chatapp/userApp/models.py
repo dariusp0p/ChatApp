@@ -7,10 +7,10 @@ class User(models.Model):
     last_name = models.CharField(max_length=25)
     gender = models.CharField(max_length=10, null=True, blank=True)
     profile_photo = models.ImageField(upload_to='images/', blank=True, null=True)
-    email = models.CharField(max_length=50)
+    email = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50, default="user1234")
     active_now = models.BooleanField(default=False)
-    last_time_online = models.DateTimeField(auto_now=True)
+    last_time_online = models.DateTimeField()
 
     # Semnal pentru a șterge poza de profil când un user este șters
     @receiver(models.signals.post_delete, sender='userApp.User')
